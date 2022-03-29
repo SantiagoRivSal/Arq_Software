@@ -2,8 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
 
 type Categories []Category
@@ -14,22 +16,22 @@ type Category struct {
 }
 
 func main() {
-	cats, err := getCategories("MLA")
+	cats, err := GetCategories("MLA")
 	if err != nil {
-		println("Error:", err.Error())
+		fmt.Println("Error:", err.Error())
 		return
 	}
-	println("CATEGORIAS: ", cats)
+	fmt.Println("Las categorias son ", cats)
 }
 
-func getCategories(siteID string) (Categories, error) {
-	resp, err := http.Get("https://api.mercadolibre.com/sites/MLA/search?q=Motorola") //completar
-
-	bytes := ioutil.ReadAll(resp.Bytes()) //completar
-
+func GetCategories(siteID string) (Categories, error) {
+	response, err := http.Get("https://api.mercadolibre.com/sites")
+	if err != nil {
+		fmt.Println("Error:", err.Error())
+		os.Exit(1)
+	}
+	bytes, err := ioutil.ReadAll(response.Body)
 	var cats Categories
-
-	err := json.Unmarshal(bytes, &cats)
-
+	json.Unmarshal(bytes, &cats)
 	return cats, nil
 }
