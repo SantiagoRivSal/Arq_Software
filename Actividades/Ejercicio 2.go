@@ -1,19 +1,15 @@
 package main
 
 import (
-	"net/http"
-    "fmt"
 	"encoding/json"
-	"errors"
-	"io/util"
+	"io/ioutil"
+	"net/http"
 )
 
-type Categories [] Category{
+type Categories []Category
 
-}
-
-type Category struct{
-	ID string `json:"id"`
+type Category struct {
+	ID   string `json:"id"`
 	Name string `json:"name"`
 }
 
