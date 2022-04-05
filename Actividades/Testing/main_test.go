@@ -7,7 +7,7 @@ import (
 )
 
 func TestHello(t *testing.T) {
-	assert.Equal(t, "Hello, world", Hello())
+	assert.Equal(t, "Hello", Hello())
 }
 
 // escribir go mod init test
