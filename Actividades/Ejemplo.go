@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
-	"os"
+	//"os"
 )
 
-func main() {
-	sum := 0
+//func main() {
+
+	/*sum := 0
 	for i := 0; i < 10; i++ {
 		sum += i
-	}
+	}*/
 
 	/*
 		for i := 0; i < 10; i++ {
@@ -22,7 +23,13 @@ func main() {
 		fmt.Fprintln(f, "data")
 		f.Close()
 	*/
-	f, _ := os.ReadFile("data.txt")
-	fmt.Print(string(f))
+	/*f, _ := os.ReadFile("data.txt")
+	fmt.Print(string(f))*/
 
+//}
+func Hello() string{
+	return "Hello, world"
+}
+func main {
+	fmt.Println(Hello())
 }
